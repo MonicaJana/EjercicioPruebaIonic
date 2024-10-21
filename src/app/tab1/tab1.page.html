@@ -1,0 +1,98 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Tab 1
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-card class="calculator-card">
+    <ion-card-header>
+      <ion-card-title>Calculadora</ion-card-title>
+    </ion-card-header>
+  
+    <ion-card-content>
+      <ion-input [(ngModel)]="currentInput" placeholder="0" readonly></ion-input>
+      <ion-input [(ngModel)]="result" placeholder="Resultado" readonly></ion-input>
+  
+      <div class="button-row">
+        <ion-button class="button" (click)="appendToInput('1')">1</ion-button>
+        <ion-button class="button" (click)="appendToInput('2')">2</ion-button>
+        <ion-button class="button" (click)="appendToInput('3')">3</ion-button>
+        <ion-button class="button operator" (click)="appendToInput('+')">+</ion-button>
+      </div>
+      <div class="button-row">
+        <ion-button class="button" (click)="appendToInput('4')">4</ion-button>
+        <ion-button class="button" (click)="appendToInput('5')">5</ion-button>
+        <ion-button class="button" (click)="appendToInput('6')">6</ion-button>
+        <ion-button class="button operator" (click)="appendToInput('-')">-</ion-button>
+      </div>
+      <div class="button-row">
+        <ion-button class="button" (click)="appendToInput('7')">7</ion-button>
+        <ion-button class="button" (click)="appendToInput('8')">8</ion-button>
+        <ion-button class="button" (click)="appendToInput('9')">9</ion-button>
+        <ion-button class="button operator" (click)="appendToInput('*')">*</ion-button>
+      </div>
+      <div class="button-row">
+        <ion-button class="button clear" (click)="clear()">C</ion-button>
+        <ion-button class="button" (click)="appendToInput('0')">0</ion-button>
+        <ion-button class="button operator" (click)="calculate()">=</ion-button>
+        <ion-button class="button operator" (click)="appendToInput('/')">/</ion-button>
+      </div>
+    </ion-card-content>
+  
+    <style>
+      .calculator-card {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100vh; /* Ocupa toda la altura de la ventana */
+        background-color: #e2e8f3;
+        border-radius: 10px;
+        margin: 0 auto; /* Centra horizontalmente */
+      }
+  
+      ion-card {
+        width: 90%; /* Ajusta el ancho según sea necesario */
+        max-width: 400px; /* Ancho máximo para pantallas grandes */
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Sombra para mayor profundidad */
+      }
+  
+      ion-input {
+        background-color: #3c4043;
+        color: #ffffff;
+        margin-bottom: 10px;
+        text-align: right;
+        font-size: 24px;
+      }
+  
+      .button-row {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 10px;
+      }
+  
+      .button {
+        flex: 1;
+        margin: 0 5px;
+        background-color: #4caf50;
+        color: #ffffff;
+        border-radius: 8px;
+      }
+  
+      .button.operator {
+        background-color: #f44336;
+      }
+  
+      .button.clear {
+        background-color: #ff9800;
+      }
+  
+      .button:hover {
+        opacity: 0.8;
+      }
+    </style>
+  </ion-card>
+</ion-content>
